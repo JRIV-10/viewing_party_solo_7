@@ -1,6 +1,10 @@
 <h3> Movies </h3>
 
 <% @facade.movies.each do |movie| %>
-  <%= link_to "#{movie.title}", user_movie_path(@user, movie.id) %></br>
-  <%= movie.vote_average%>
+  <ul>
+    <li class="movie_title">Movie Title: <%= link_to "#{movie.title}", user_movie_path(@user, movie.id) %></li>
+    <li class="vote_average">Average Vote: <%= movie.vote_average%></li>
+  </ul>
 <% end %>
+
+<%= button_to "Discover Page", user_discover_index_path(@user) %>
