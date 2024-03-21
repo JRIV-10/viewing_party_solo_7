@@ -26,5 +26,15 @@ RSpec.describe "Index", type: :feature do
  
       expect(current_path).to eq(user_movies_path(user))
     end
+
+    it "takes users to the movie they searched for", :vcr do 
+      user = User.create!(name: 'Tommy', email: 'tommy@email.com')
+      visit user_discover_index_path(user)
+
+      fill_in(:movie_title, with: "Six")
+      click_on("Search")
+
+      expect(current_path).to eq(user_movies_path(user))
+    end
   end 
 end
