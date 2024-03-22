@@ -71,3 +71,14 @@ Shoulda::Matchers.configure do |config|
     with.library :rails
   end
 end
+
+def json_stub(endpoint, base)
+  json_response = File.read("#{endpoint}")
+      stub_request(:get, "#{base}").
+        with(
+          query: {
+            "api_key" => Rails.application.credentials.tmdb[:key]
+          }
+        ).
+        to_return(status: 200, body: json_response)
+end
