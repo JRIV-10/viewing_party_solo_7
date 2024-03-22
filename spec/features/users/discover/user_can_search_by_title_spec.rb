@@ -4,7 +4,7 @@ RSpec.describe "Search By Title", type: :feature do
   describe "As a User" do
     it "can search by title" do
       json_response = File.read("spec/fixtures/key_word_search/tmdb_kung_fu_panda.json")
-      stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=4c5a041db10b9e21e2c9287447a724f4&include_adult=false&language=en-US&page=1&query=").
+      stub_request(:get, "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=").
         with(
           query: {
             "api_key" => Rails.application.credentials.tmdb[:key]

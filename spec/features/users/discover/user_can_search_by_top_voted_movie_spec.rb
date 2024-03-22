@@ -19,7 +19,7 @@ RSpec.describe "Search By Top Voted", type: :feature do
 
     it "takes user to users/:user_id/movies page" do 
       json_response = File.read("spec/fixtures/top_voted_movies/tmdb_top_voted_movies.json")
-      stub_request(:get, "https://api.themoviedb.org/3/search/movie?api_key=4c5a041db10b9e21e2c9287447a724f4&include_adult=false&language=en-US&page=1&query=").
+      stub_request(:get, "https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1&query=").
         with(
           query: {
             "api_key" => Rails.application.credentials.tmdb[:key]
