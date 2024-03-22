@@ -5,7 +5,7 @@ class MovieSearchFacade
   end
 
   def movies
-    service = MovieService.new
+    service = MoviesService.new
     if @search_params == "top_rated"
           json = service.top_voted_movies
           movies = json[:results].map do |movie_data|

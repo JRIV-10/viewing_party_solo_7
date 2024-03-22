@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe MovieService do 
+RSpec.describe MoviesService do 
 
   describe "#top_voted_movies" do 
     xit "can find top voted movies" do 

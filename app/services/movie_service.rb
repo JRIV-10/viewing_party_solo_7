@@ -1,17 +1,21 @@
-class MovieService 
+class MovieService
+
+  def movie_details(movie_id)
+    get_url("/3/movie/#{movie_id}")
+  end
+
+  def cast_members(movie_id)
+    get_url("3/movie/#{movie_id}/credits")
+  end
+
+  def all_reviews(movie_id)
+    get_url("3/movie/#{movie_id}/reviews")
+  end
   
-  def top_voted_movies
-    get_url("/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_average.desc")
-  end
-
-  def search_by_title(key_word)
-    get_url("/3/search/movie?query=#{key_word}&include_adult=false&language=en-US&page=1")
-  end
-
   def get_url(url) 
     response = conn.get(url)
 
-    json = JSON.parse(response.body, symbolize_names: true)
+    data = JSON.parse(response.body, symbolize_names: true)
   end
 
   def conn 

@@ -21,6 +21,7 @@ RSpec.describe "Search By Title", type: :feature do
       expect(current_path).to eq(user_movies_path(user))
       expect(page).to have_css(".movie_title")
       expect(page).to have_css(".vote_average")
+      expect(page).to have_button("Discover Page")
     end 
   end
 end
